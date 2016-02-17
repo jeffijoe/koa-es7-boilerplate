@@ -1,0 +1,47 @@
+{
+  "name": "koa-es7-boilerplate",
+  "version": "0.0.5",
+  "description": "A boilerplate for writing Koa 2 apps in ES7 with Babel.",
+  "scripts": {
+    "start": "node dist/bin/server.js",
+    "build": "babel src -d dist -s",
+    "dev": "nodemon src/bin/server.js",
+    "debug": "icebug src/bin/server.js",
+    "test": "mocha test/**/*.js --compilers js:babel-register --require test/_helpers",
+    "lint": "eslint src/ test/",
+    "lint-watch": "esw -w src/ test/"
+  },
+  "author": "Jeff Hansen",
+  "contributors": [{
+    "name": "Jon West"
+  }],
+  "license": "MIT",
+  "dependencies": {
+    "app-module-path": "^1.0.5",
+    "babel-plugin-transform-runtime": "^6.5.0",
+    "babel-polyfill": "^6.5.0",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-stage-1": "^6.5.0",
+    "babel-register": "^6.5.1",
+    "glob": "^7.0.0",
+    "kcors": "^1.0.1",
+    "koa": "^2.0.0-alpha.3",
+    "koa-convert": "^1.2.0",
+    "koa-router": "^7.0.1",
+    "rc": "^1.1.6",
+    "source-map-support": "^0.4.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.5.1",
+    "babel-eslint": "^5.0.0",
+    "chai": "^3.5.0",
+    "eslint": "^2.1.0",
+    "eslint-watch": "^2.1.7",
+    "icebug": "^0.1.2",
+    "mocha": "^2.4.5",
+    "nodemon": "^1.8.1",
+    "sinon": "^1.17.3",
+    "sinon-chai": "^2.8.0",
+    "supertest": "^1.2.0"
+  }
+}

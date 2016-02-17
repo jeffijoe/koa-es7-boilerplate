@@ -1,0 +1,5 @@
+{
+  "presets": ["es2015", "stage-1"],
+  "sourceMaps": "both",
+  "plugins": ["transform-runtime"]
+}
