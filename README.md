@@ -56,7 +56,7 @@ The repository root contains config files, e.g. eslint config, gitignore, etc.
   * `bin`: files that are usually executed by `npm run` scripts, e.g. starting the server.
   * `lib`: stuff that helps the app start up, e.g. environment, utilities for loading modules, the container implementation, etc.
   * `middleware`: custom app middleware.
-  * `services`: application services, this is just to illustrate the dynamic discovery of stuff as described in the composition root section.
+  * `services`: application services, this is just to illustrate the dynamic discovery of stuff as described in the Dependency injection section.
 * `test`: tests for the source code. You usually want to replicate the source structure.
   * `_helpers`: test helpers
 
