@@ -62,13 +62,13 @@ The repository root contains config files, e.g. eslint config, gitignore, etc.
 
 ## Dependency injection
 
-To keep things simple, depencency injection works by giving API endpoints (and other things) the possibility to inject the "container" into stuff.
+To keep things simple, dependency injection works by giving API endpoints (and other things) the possibility to inject the "container" into stuff.
 
 The container is an object that has all dependencies in the system as properties, and it has methods to bind functions to accept the container as the first argument, making them both testable, and easy to use without having to worry about it too much.
 
 Example: An API endpoint needs a service, `someService`. This service is located in `services/someService.js`, and it looks something like this.
 
-```
+```javascript
 // First argument is the container,
 // then the actual args follow.
 //
@@ -96,7 +96,7 @@ The API endpoint `api/awesome.js` needs to use `someService`, but if we just `im
 
 Well, that's where the container comes in. The API endpoint looks a little like this:
 
-```
+```javascript
 // An API method.
 export const getStuff = async ({ someService }, ctx) => {
   // Dependencies are passed in with an object as the first parameter.
@@ -130,7 +130,7 @@ But notice how we are not calling `someService.getStuff(container, 'args wee')`?
 
 So, in order to actually make services available, we have to add them to the container. We do this in `lib/compositionRoot.js` - this is where the registration happens. In the case of `someService`, we've told our super-awesome discovery module that we want to register all modules in the `services` directory.
 
-```
+```javascript
 /**
  * The directories that contains modules that
  * conform to the container registration pattern.
@@ -150,7 +150,7 @@ API files are auto-loaded on startup. To add a new API endpoint, create a file i
 
 Each endpoint file must export a default function that looks like this:
 
-```
+```javascript
 export default function (router, container) {
 }
 ```
@@ -159,7 +159,7 @@ Notice how it takes the router and the container as arguments - this means that 
 
 Notice how the first argument is the container, but I destructured it to just grab what I actually want:
 
-```
+```javascript
 export const getStuff = async ({ someService }, ctx) => {
                                  ^^^^^^^^^^^
 };
