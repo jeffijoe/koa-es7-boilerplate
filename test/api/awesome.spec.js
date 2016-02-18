@@ -15,4 +15,17 @@ describe('awesome API', function() {
         .end(done);
     });
   });
+
+  describe('POST /api/stuff', function() {
+    it('returns whatever was POSTed', function(done) {
+      request.post('/api/stuff')
+        .send({ hello: 'world' })
+        .expect(200, {
+          youSaid: {
+            hello: 'world'
+          }
+        })
+        .end(done);
+    });
+  });
 });

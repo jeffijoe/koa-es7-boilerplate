@@ -4,7 +4,7 @@ import { default as _path } from 'path';
 
 /**
  * The directories that contains modules that
- * conform to the container pattern.
+ * conform to the container registration pattern.
  */
 const dirsToLoad = [
   'services'
@@ -31,6 +31,9 @@ async function invokeFactoriesIn(container, path) {
  */
 export default async function getConfiguredContainer() {
   const container = createContainer();
+
+  // Feel free to register anything else here...
+
   const load = invokeFactoriesIn.bind(null, container);
   await Promise.all(
     dirsToLoad.map(load)
