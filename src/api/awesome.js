@@ -1,10 +1,12 @@
+import env from 'lib/env';
+
 // An API method.
 export const getStuff = async ({ someService }, ctx) => {
   // Dependencies are passed in with an object as the first parameter.
   const data = await someService.getStuff('What is the universe?');
 
   // .ok comes from responseCalls.js middleware.
-  return ctx.ok({ data });
+  return ctx.ok({ data, testing: env.TESTING });
 };
 
 // Another API method

@@ -10,7 +10,8 @@ describe('awesome API', function() {
     it('returns the answer', function(done) {
       request.get('/api/stuff')
         .expect(200, {
-          data: 'What is the universe? The answer is 42.'
+          data: 'What is the universe? The answer is 42.',
+          testing: true
         })
         .end(done);
     });

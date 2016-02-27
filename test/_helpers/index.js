@@ -2,6 +2,11 @@ import chai from 'chai';
 import appModulePath from 'app-module-path';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
+import env from '../../src/lib/env';
+import yenv from 'yenv';
+
+// Load in the "tests" environment variables.
+Object.assign(env, yenv('env.yaml', { env: 'tests' }));
 
 // Basically makes us able to "import stuff from 'some/source/folder'"
 appModulePath.addPath(__dirname + '/../../src');
