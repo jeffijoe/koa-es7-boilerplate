@@ -25,6 +25,7 @@ Clone this repo and adjust details in `package.json`. Read on to learn how to ac
 * `app-module-path` for improving your module importing life
 * `nodemon` for development to auto-restart when your files change
 * Nifty `npm run` scripts, see next section for details
+* [`yenv`](https://github.com/jeffijoe/yenv) for environment variable management
 
 ## `npm run` scripts
 
@@ -59,6 +60,29 @@ The repository root contains config files, e.g. eslint config, gitignore, etc.
   * `services`: application services, this is just to illustrate the dynamic discovery of stuff as described in the Dependency injection section.
 * `test`: tests for the source code. You usually want to replicate the source structure.
   * `_helpers`: test helpers
+
+
+## Environment variables
+
+So the environment variables can be reached by importing `lib/env`.
+
+```
+import env from 'lib/env';
+
+// When NODE_ENV=production
+env.prod === true;
+env.dev === false;
+
+// otherwise...
+env.prod === false;
+env.dev === true;
+```
+
+In the repository root, you will find a `env.yaml`, which is where you can set up environment variables so you won't have to do it from your shell. This also makes it more platform-agnostic.
+
+The top-level nodes in the YAML-file contain a set of environment variables. `yenv` will load the set that matches whatever `NODE_ENV` says.
+
+I've set it up so anything in `tests` will override anything in `development` when running tests.
 
 ## Dependency injection
 
