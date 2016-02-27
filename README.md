@@ -79,11 +79,18 @@ env.prod === false;
 env.dev === true;
 ```
 
+Additionally, all environment variables you'd usually find on `process.env` will be available on this object.
+
 In the repository root, you will find a `env.yaml`, which is where you can set up environment variables so you won't have to do it from your shell. This also makes it more platform-agnostic.
 
-The top-level nodes in the YAML-file contain a set of environment variables. `yenv` will load the set that matches whatever `NODE_ENV` says.
+The top-level nodes in the YAML-file contain a set of environment variables.
+`yenv` will load the set that matches whatever `NODE_ENV` says.
 
 I've set it up so anything in `tests` will override anything in `development` when running tests.
+
+*Actual environment variables will take precedence over the `env.yaml` file!*
+
+See the [`yenv` docs](https://github.com/jeffijoe/yenv) for more info.
 
 ## Dependency injection
 
