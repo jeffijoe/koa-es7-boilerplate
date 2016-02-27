@@ -1,6 +1,7 @@
 # koa-es7-boilerplate
 
 [![Dependency Status](https://david-dm.org/jeffijoe/icebug.svg)](https://david-dm.org/jeffijoe/koa-es7-boilerplate)
+[![devDependency Status](https://david-dm.org/jeffijoe/koa-es7-boilerplate/dev-status.svg)](https://david-dm.org/jeffijoe/koa-es7-boilerplate#info=devDependencies)
 
 A boilerplate for writing beautiful `async-await`-based Koa 2 API's with ES7 using `babel`.
 
