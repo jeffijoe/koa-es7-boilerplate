@@ -13,7 +13,9 @@ export default function (container) {
   // We register the stuff we want to expose.
   // That means when dependents need this service,
   // they must reference it as `someService` in the container.
-  container.someService = container.bindAll({
-    getStuff
+  container.register({
+    someService: container.bindAll({
+      getStuff
+    })
   });
 }

@@ -4,7 +4,7 @@ import convert from 'koa-convert';
 import cors from 'kcors';
 import responseCalls from '../middleware/responseCalls';
 import createApis from './createApis';
-import getConfiguredContainer from './compositionRoot';
+import getConfiguredContainer from './configureContainer';
 import bodyParser from 'koa-bodyparser';
 
 /**
