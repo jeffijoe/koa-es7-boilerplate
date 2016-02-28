@@ -35,7 +35,7 @@
     "koa-convert": "^1.2.0",
     "koa-router": "^7.0.1",
     "source-map-support": "^0.4.0",
-    "yenv": "^0.1.1"
+    "yenv": "^0.2.0"
   },
   "devDependencies": {
     "babel-cli": "^6.5.1",
