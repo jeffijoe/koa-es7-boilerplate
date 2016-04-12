@@ -5,7 +5,7 @@ import { createContainer } from 'awilix';
  * will be loaded.
  */
 const modulesToLoad = [
-  'src/services/*.js'
+  'services/*.js'
 ];
 
 /**
@@ -15,6 +15,6 @@ const modulesToLoad = [
  */
 export default async function getConfiguredContainer() {
   const container = createContainer();
-  await container.loadModules(modulesToLoad);
+  await container.loadModules(modulesToLoad, { cwd: `${__dirname}/..` });
   return container;
 }
