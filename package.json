@@ -1,6 +1,6 @@
 {
   "name": "koa-es7-boilerplate",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "A boilerplate for writing Koa 2 apps in ES7 with Babel.",
   "scripts": {
     "start": "node dist/bin/server.js",
