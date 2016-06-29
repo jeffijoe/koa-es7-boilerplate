@@ -17,6 +17,14 @@ describe('awesome API', function() {
     });
   });
 
+  describe('GET /not/found', function() {
+    it('returns an object with a message', function(done) {
+      request.get('/not/found')
+        .expect(404, { message: 'Whatever you were looking for, we ain\'t got it, son.' })
+        .end(done);
+    });
+  });
+
   describe('POST /api/stuff', function() {
     it('returns whatever was POSTed', function(done) {
       request.post('/api/stuff')
