@@ -1,22 +1,6 @@
-const prod = process.env.NODE_ENV === 'production';
-const yenv = require('yenv');
+import yenv from 'yenv';
 
 /**
- * An object with environment stuff.
- *
- * @type {Object}
+ * We just export what `yenv()` returns.
  */
-module.exports = Object.assign(
-  {
-    /**
-     * Are we in production?
-     */
-    prod,
-    /**
-     * Are we in development?
-     */
-    dev: !prod
-  },
-  // Load environment variables from env.yaml.
-  yenv()
-);
+export default yenv();

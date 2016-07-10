@@ -14,8 +14,8 @@ import { listModules } from 'awilix';
  * @return {Promise}
  * A promise for when we're done.
  */
-export default async function createApis(router, container) {
-  const result = await listModules('../api/*.js', { cwd: __dirname });
+export default function createApis(router, container) {
+  const result = listModules('../api/*.js', { cwd: __dirname });
   result.forEach(
     m => require(m.path).default(router, container)
   );

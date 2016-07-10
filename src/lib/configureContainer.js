@@ -1,4 +1,4 @@
-import { createContainer } from 'awilix';
+import { createContainer, Lifetime } from 'awilix';
 
 /**
  * Using Awilix, the following files and folders (glob patterns)
@@ -13,8 +13,17 @@ const modulesToLoad = [
  *
  * @return {Object} The container.
  */
-export default async function getConfiguredContainer() {
+export default function getConfiguredContainer() {
   const container = createContainer();
-  await container.loadModules(modulesToLoad, { cwd: `${__dirname}/..` });
+  container.loadModules(
+    modulesToLoad,
+    {
+      cwd: `${__dirname}/..`,
+      formatName: 'camelCase',
+      registrationOptions: {
+        lifetime: Lifetime.SCOPED
+      }
+    }
+  );
   return container;
 }

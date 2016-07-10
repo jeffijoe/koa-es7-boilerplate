@@ -1,9 +1,11 @@
 # koa-es7-boilerplate
 
-[![Dependency Status](https://david-dm.org/jeffijoe/icebug.svg)](https://david-dm.org/jeffijoe/koa-es7-boilerplate)
-[![devDependency Status](https://david-dm.org/jeffijoe/koa-es7-boilerplate/dev-status.svg)](https://david-dm.org/jeffijoe/koa-es7-boilerplate#info=devDependencies)
+[![dependency Status](https://img.shields.io/david/jeffijoe/koa-es7-boilerplate.svg?maxAge=1000)](https://david-dm.org/jeffijoe/koa-es7-boilerplate)
+[![devDependency Status](https://img.shields.io/david/dev/jeffijoe/koa-es7-boilerplate.svg?maxAge=1000)](https://david-dm.org/jeffijoe/koa-es7-boilerplate)
+[![npm](https://img.shields.io/npm/l/koa-es7-boilerplate.svg?maxAge=1000)](https://github.com/jeffijoe/koa-es7-boilerplate/blob/master/LICENSE.md)
+[![node](https://img.shields.io/node/v/koa-es7-boilerplate.svg?maxAge=1000)](https://www.npmjs.com/package/koa-es7-boilerplate)
 
-A boilerplate for writing beautiful `async-await`-based Koa 2 API's with ES7 using `babel`.
+A boilerplate for writing beautiful `async-await`-based Koa 2 API's with ES7 using `babel` for **Node v6 and above!**.
 
 ## Setting up shop
 
@@ -11,9 +13,7 @@ Clone this repo and adjust details in `package.json`. Read on to learn how to ac
 
 ## What's in the package?
 
-* A minimal setup for doing dependency injection
 * Auto-loading of API "controllers"
-* Helper methods for dynamically discovering modules
 * `mocha-sinon-chai` testing, as well as `supertest` for API testing
 * Routing with `koa-router`
 * Parsing request bodies with `koa-bodyparser`
@@ -21,13 +21,13 @@ Clone this repo and adjust details in `package.json`. Read on to learn how to ac
 * `babel` with `es2015` + `stage-1` presets, `transform-runtime` plugin and sourcemaps as well as `babel-polyfill` for `async-await` support
 * **Source map support with nice stack traces!**
 * `eslint` (+ optional watch-mode) with rules I think are nice, works with ES7 thanks to `babel-eslint`
-* Helper methods for setting status + response content - e.g. `ctx.ok()`, `ctx.notFound()`, etc...
+* [`koa-respond`](https://github.com/jeffijoe/koa-respond) for helper functions on the context.
 * CORS middleware with `kcors`
 * `app-module-path` for improving your module importing life
 * `nodemon` for development to auto-restart when your files change
 * Nifty `npm run` scripts, see next section for details
 * [`yenv`](https://github.com/jeffijoe/yenv) for environment variable management
-* [`Awilix`](https://github.com/jeffijoe/awilix) for dependency injection / IoC
+* [`awilix`](https://github.com/jeffijoe/awilix) for dependency injection / IoC
 
 ## `npm run` scripts
 
@@ -35,7 +35,7 @@ There are a few defined run scripts, here's a list of them with a description of
 
 * `start`: Used by the production environment to start the app. This will run a compiled version, so you need to execute `build` first.
 * `build`: Runs the `babel` CLI to compile the app. Files are emitted to `dist/`.
-* `dev`: Runs the app in development mode - uses `babel-register` to compile on-the-fly. Also uses `nodemon` to automatically restart when stuff changes.
+* `dev`: Runs the app in development mode - uses `babel-node` to compile on-the-fly. Also uses `nodemon` to automatically restart when stuff changes.
 * `debug`: Runs the app in development mode with `icebug` (a combo of `nodemon` + `node-inspector`).
 * `test`: Runs `mocha` tests.
 * `test-watch`: Runs `mocha` tests in watch-mode.
@@ -70,14 +70,6 @@ So the environment variables can be reached by importing `lib/env`.
 
 ```
 import env from 'lib/env';
-
-// When NODE_ENV=production
-env.prod === true;
-env.dev === false;
-
-// otherwise...
-env.prod === false;
-env.dev === true;
 ```
 
 Additionally, all environment variables you'd usually find on `process.env` will be available on this object.
@@ -93,6 +85,10 @@ I've set it up so anything in `tests` will override anything in `development` wh
 
 See the [`yenv` docs](https://github.com/jeffijoe/yenv) for more info.
 
+## API endpoints
+
+Each file in `/api` exports a default function that takes the router as the first parameter. That function registers API endpoints.
+
 ## Dependency injection
 
 This boilerplate uses the [`Awilix`](https://github.com/jeffijoe/awilix) container for managing dependencies - please check out the Awilix documentation
@@ -100,13 +96,7 @@ for details. The container is configured in `lib/configureContainer.js`.
 
 ## Middleware
 
-Middleware is located in the `middleware` folder. The `responseCalls` middleware can be removed if you don't want it, I personally find it quite nice with helper methods such as:
-
-* `ctx.ok()`
-* `ctx.notFound()`
-* `ctx.badRequest()`
-
-and so on, check the file for details. Middleware is *not* automatically loaded, and should be installed in `lib/createServer`.
+Middleware is located in the `middleware` folder and is *not* automatically loaded - they should be installed in `lib/createServer`.
 
 ## app-module-path - what?
 
