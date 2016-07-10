@@ -1,6 +1,6 @@
 {
   "name": "koa-es7-boilerplate",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "A boilerplate for writing Koa 2 apps in ES7 with Babel and Node 6.",
   "engines": {
     "node": ">=6.0.0",
