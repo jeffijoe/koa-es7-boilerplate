@@ -13,7 +13,7 @@ const __classes = {
     id: 3,
     name: 'Dependency Injection with Awilix'
   }]
-}
+};
 
 export default class ClassService {
   constructor({ currentUser }) {
