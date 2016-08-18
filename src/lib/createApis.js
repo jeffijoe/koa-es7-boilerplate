@@ -8,11 +8,8 @@ import { listModules } from 'awilix';
  * @param  {KoaRouter} router
  * The router to pass to the API factories.
  *
- * @param  {Object} container
+ * @param  {AwilixContainer} container
  * The DI container.
- *
- * @return {Promise}
- * A promise for when we're done.
  */
 export default function createApis(router, container) {
   const result = listModules('../api/*.js', { cwd: __dirname });
