@@ -21,7 +21,7 @@
   "license": "MIT",
   "dependencies": {
     "app-module-path": "^1.1.0",
-    "awilix": "^2.1.0",
+    "awilix": "^2.2.0",
     "babel-preset-stage-1": "^6.5.0",
     "babel-register": "^6.9.0",
     "glob": "^7.0.5",
