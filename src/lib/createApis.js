@@ -1,6 +1,4 @@
-import glob from 'glob';
-import path from 'path';
-import { listModules } from 'awilix';
+import { listModules } from 'awilix'
 
 /**
  * Resolves and creates API controllers.
@@ -11,9 +9,9 @@ import { listModules } from 'awilix';
  * @param  {AwilixContainer} container
  * The DI container.
  */
-export default function createApis(router, container) {
-  const result = listModules('../api/*.js', { cwd: __dirname });
+export default function createApis (router, container) {
+  const result = listModules('../api/*.js', { cwd: __dirname })
   result.forEach(
     m => require(m.path).default(router, container)
-  );
+  )
 }

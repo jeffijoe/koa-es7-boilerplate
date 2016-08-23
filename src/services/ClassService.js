@@ -13,15 +13,15 @@ const __classes = {
     id: 3,
     name: 'Dependency Injection with Awilix'
   }]
-};
+}
 
 export default class ClassService {
-  constructor({ currentUser }) {
-    this.currentUser = currentUser;
+  constructor ({ currentUser }) {
+    this.currentUser = currentUser
   }
 
-  find() {
+  find () {
     // gets the classes for the authenticated user.
-    return Promise.resolve(__classes[this.currentUser.id]);
+    return Promise.resolve(__classes[this.currentUser.id])
   }
 }

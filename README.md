@@ -4,6 +4,7 @@
 [![devDependency Status](https://img.shields.io/david/dev/jeffijoe/koa-es7-boilerplate.svg?maxAge=1000)](https://david-dm.org/jeffijoe/koa-es7-boilerplate)
 [![npm](https://img.shields.io/npm/l/koa-es7-boilerplate.svg?maxAge=1000)](https://github.com/jeffijoe/koa-es7-boilerplate/blob/master/LICENSE.md)
 [![node](https://img.shields.io/node/v/koa-es7-boilerplate.svg?maxAge=1000)](https://www.npmjs.com/package/koa-es7-boilerplate)
+[![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
 A boilerplate for writing beautiful `async-await`-based Koa 2 API's with ES7 using `babel` for **Node v6 and above!**.
 
@@ -14,20 +15,20 @@ Clone this repo and adjust details in `package.json`. Read on to learn how to ac
 ## What's in the package?
 
 * Auto-loading of API "controllers"
+* Nifty `npm run` scripts, see next section for details
 * `mocha-sinon-chai` testing, as well as `supertest` for API testing
 * Routing with `koa-router`
 * Parsing request bodies with `koa-bodyparser`
-* [`icebug`](https://github.com/jeffijoe/icebug) for debugging
-* `babel` with `es2015` + `stage-1` presets, `transform-runtime` plugin and sourcemaps as well as `babel-polyfill` for `async-await` support
+* `babel` with `es2015-node6` + `stage-1` presets, `transform-runtime` plugin and sourcemaps
 * **Source map support with nice stack traces!**
-* `eslint` (+ optional watch-mode) with rules I think are nice, works with ES7 thanks to `babel-eslint`
-* [`koa-respond`](https://github.com/jeffijoe/koa-respond) for helper functions on the context.
+* `eslint` (+ optional watch-mode) with [standard][standard], works with ES7 thanks to `babel-eslint`
 * CORS middleware with `kcors`
-* `app-module-path` for improving your module importing life
+* `app-module-path` for improving your life when importing code in tests
 * `nodemon` for development to auto-restart when your files change
-* Nifty `npm run` scripts, see next section for details
-* [`yenv`](https://github.com/jeffijoe/yenv) for environment variable management
-* [`awilix`](https://github.com/jeffijoe/awilix) for dependency injection / IoC
+* [`icebug`][icebug] for debugging
+* [`koa-respond`][respond] for helper functions on the context.
+* [`yenv`][yenv] for environment variable management
+* [`awilix`][awilix] for dependency injection / IoC
 
 ## `npm run` scripts
 
@@ -110,3 +111,9 @@ Basically, instead of `import stuff from '../../../../../lib/stuff'`, you can us
 # License
 
 MIT.
+
+[standard]: http://standardjs.com/
+[respond]: https://github.com/jeffijoe/koa-respond
+[yenv]: https://github.com/jeffijoe/yenv
+[awilix]: https://github.com/jeffijoe/awilix
+[icebug]: https://github.com/jeffijoe/icebug

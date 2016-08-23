@@ -1,5 +1,5 @@
-import env from 'lib/env';
-import { makeInvoker } from 'middleware/invocation';
+import env from '../lib/env'
+import { makeInvoker } from 'awilix-koa'
 
 /**
  * Makes an object with the API endpoints.
@@ -15,24 +15,23 @@ const makeFunctionalApi = ({ someService }) => {
 
   // An API method.
   const getStuff = async (ctx) => {
-    const data = await someService.getStuff('What is the universe?');
+    const data = await someService.getStuff('What is the universe?')
 
     // .ok comes from responseCalls.js middleware.
-    return ctx.ok({ data, testing: env.TESTING });
-  };
+    return ctx.ok({ data, testing: env.TESTING })
+  }
 
   // Another API method
   const postStuff = async (ctx) => {
     // echo back stuff to prove bodyparser works.
-    return ctx.ok({ youSaid: ctx.request.body });
-  };
+    return ctx.ok({ youSaid: ctx.request.body })
+  }
 
   return {
     getStuff,
     postStuff
-  };
-};
-
+  }
+}
 
 // The default export is the registration function.
 // It gets passed the router, and the container
@@ -44,9 +43,9 @@ export default function (router, container) {
   // What's this?
   // This trick lets us construct an API for each request.
   // That means that it may store request-local state.
-  const api = makeInvoker(makeFunctionalApi);
+  const api = makeInvoker(makeFunctionalApi)
   // router is a KoaRouter.
   router
     .get('/api/functional', api('getStuff'))
-    .post('/api/functional', api('postStuff'));
+    .post('/api/functional', api('postStuff'))
 }

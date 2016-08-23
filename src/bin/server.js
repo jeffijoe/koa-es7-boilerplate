@@ -1,15 +1,15 @@
-import './_bootstrap';
-import createServer from 'lib/createServer';
-import env from 'lib/env';
+import createServer from '../lib/createServer'
+import env from '../lib/env'
+import logger from '../lib/logger'
 
-const PORT = process.env.PORT || 1338;
+const PORT = env.PORT || 1338
 
 createServer().then(app => {
   app.listen(PORT, () => {
-    const mode = env.NODE_ENV;
-    console.log('Server listening on', PORT, 'in', mode, 'mode');
-  });
+    const mode = env.NODE_ENV
+    logger.debug(`Server listening on ${PORT} in ${mode} mode`)
+  })
 }, err => {
-  console.error(err.stack);
-  process.exit(1);
-});
+  logger.error('Error while starting up server', err)
+  process.exit(1)
+})
