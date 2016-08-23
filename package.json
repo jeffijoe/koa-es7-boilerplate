@@ -16,7 +16,7 @@
     "test-watch": "npm run test -- --watch",
     "lint": "eslint src/ test/",
     "lint-watch": "esw -w src/ test/",
-    "cover": "babel-node ./node_modules/isparta/bin/isparta cover --root src/ ./node_modules/mocha/bin/_mocha -- --require test/_helpers test/**/*.js"
+    "cover": "cross-env NODE_ENV=test nyc npm test"
   },
   "author": "Jeff Hansen",
   "license": "MIT",
@@ -42,21 +42,37 @@
     "app-module-path": "^1.1.0",
     "babel-cli": "^6.11.4",
     "babel-eslint": "^6.1.2",
+    "babel-plugin-istanbul": "^2.0.0",
     "babel-plugin-source-map-support": "0.0.1",
     "babel-plugin-transform-runtime": "^6.12.0",
     "babel-preset-es2015-node6": "^0.3.0",
     "chai": "^3.5.0",
+    "cross-env": "^2.0.0",
     "eslint": "^3.3.1",
     "eslint-config-standard": "^6.0.0-beta.3",
     "eslint-plugin-promise": "^2.0.1",
     "eslint-plugin-standard": "^2.0.0",
     "eslint-watch": "^2.1.14",
     "icebug": "^0.1.6",
-    "isparta": "^4.0.0",
     "mocha": "^3.0.2",
     "nodemon": "^1.10.2",
+    "nyc": "^8.1.0",
     "sinon": "^1.17.5",
     "sinon-chai": "^2.8.0",
     "supertest": "^2.0.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "nyc": {
+    "sourceMap": false,
+    "instrument": false,
+    "reporter": [
+      "text",
+      "lcov"
+    ],
+    "include": [
+      "src/**/*.js"
+    ]
   }
 }

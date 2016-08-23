@@ -11,7 +11,6 @@ import logger from './logger'
 import getConfiguredContainer from './configureContainer'
 import notFoundHandler from '../middleware/notFound'
 
-
 /**
  * Creates and returns a new Koa application.
  * Does *NOT* call `listen`!
@@ -47,7 +46,7 @@ export default async function createServer () {
   })
 
   // Create the API's.
-  createApis(router, container)
+  createApis(router)
 
   // Install routes
   app.use(router.allowedMethods())

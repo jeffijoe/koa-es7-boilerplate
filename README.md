@@ -16,10 +16,11 @@ Clone this repo and adjust details in `package.json`. Read on to learn how to ac
 
 * Auto-loading of API "controllers"
 * Nifty `npm run` scripts, see next section for details
+* `babel` with `es2015-node6` + `stage-1` presets, `transform-runtime` plugin and sourcemaps
 * `mocha-sinon-chai` testing, as well as `supertest` for API testing
+* Code coverage with `istanbul` + `nyc` (yes, **with ES7 support!**)
 * Routing with `koa-router`
 * Parsing request bodies with `koa-bodyparser`
-* `babel` with `es2015-node6` + `stage-1` presets, `transform-runtime` plugin and sourcemaps
 * **Source map support with nice stack traces!**
 * `eslint` (+ optional watch-mode) with [standard][standard], works with ES7 thanks to `babel-eslint`
 * CORS middleware with `kcors`
@@ -106,7 +107,6 @@ Basically, instead of `import stuff from '../../../../../lib/stuff'`, you can us
 # Authors
 
 * Jeff Hansen - [@Jeffijoe](https://twitter.com/Jeffijoe)
-* Jon West - [@ddproxy](https://twitter.com/ddproxy)
 
 # License
 

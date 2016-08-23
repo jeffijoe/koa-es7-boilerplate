@@ -34,12 +34,10 @@ const makeFunctionalApi = ({ someService }) => {
 }
 
 // The default export is the registration function.
-// It gets passed the router, and the container
-// which is used to create the API endpoints.
-// `container.cradle` is passed in as that's how
-// dependencies are resolved. For more info,
-// visit the Awilix docs: https://github.com/jeffijoe/awilix
-export default function (router, container) {
+// It gets passed the router and uses makeInvoker
+// to create route handler middleware.
+// For more info, visit the Awilix docs: https://github.com/jeffijoe/awilix
+export default function (router) {
   // What's this?
   // This trick lets us construct an API for each request.
   // That means that it may store request-local state.

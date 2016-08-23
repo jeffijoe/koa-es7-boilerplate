@@ -13,7 +13,7 @@ import createServer from 'lib/createServer'
 
 let _app, _server
 const createTestServer = memoize(async () => {
-  env.load('tests')
+  env.load('test')
   const app = _app = await createServer()
   _server = http.createServer(
     app.callback()
