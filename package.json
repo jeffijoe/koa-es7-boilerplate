@@ -16,7 +16,7 @@
     "test-watch": "npm run test -- --watch",
     "lint": "eslint src/ test/",
     "lint-watch": "esw -w src/ test/",
-    "cover": "cross-env NODE_ENV=test nyc npm test"
+    "cover": "cross-env NODE_ENV=test nyc npm test",
   },
   "author": "Jeff Hansen",
   "license": "MIT",
@@ -45,7 +45,7 @@
     "babel-plugin-istanbul": "^3.0.0",
     "babel-plugin-source-map-support": "0.0.1",
     "babel-plugin-transform-runtime": "^6.15.0",
-    "babel-preset-es2015-node6": "^0.4.0",
+    "babel-preset-env": "^1.1.8",
     "chai": "^3.5.0",
     "cross-env": "^3.1.3",
     "eslint": "^3.12.2",
