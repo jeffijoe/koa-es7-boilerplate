@@ -16,7 +16,7 @@ Clone this repo and adjust details in `package.json`. Read on to learn how to ac
 
 * Auto-loading of API "controllers"
 * Nifty `npm run` scripts, see next section for details
-* `babel` with `es2015-node6` + `stage-1` presets, `transform-runtime` plugin and sourcemaps
+* `babel` with `env` + `stage-1` presets, `transform-runtime` plugin and sourcemaps
 * `mocha-sinon-chai` testing, as well as `supertest` for API testing
 * Code coverage with `istanbul` + `nyc` (yes, **with ES7 support!**)
 * Routing with `koa-router`
