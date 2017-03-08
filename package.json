@@ -16,7 +16,7 @@
     "test-watch": "npm run test -- --watch",
     "lint": "eslint src/ test/",
     "lint-watch": "esw -w src/ test/",
-    "cover": "cross-env NODE_ENV=test nyc npm test",
+    "cover": "cross-env NODE_ENV=test nyc npm test"
   },
   "author": "Jeff Hansen",
   "license": "MIT",
