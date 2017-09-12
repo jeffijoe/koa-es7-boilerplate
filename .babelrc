@@ -4,10 +4,10 @@
       "targets": {
         "node": "current"
       }
-    }
-  ], "stage-1"],
+    }]
+  ],
   "sourceMaps": "both",
-  "plugins": ["transform-runtime"],
+  "plugins": ["transform-runtime", "transform-object-rest-spread"],
   "env": {
     "test": {
       "plugins": [

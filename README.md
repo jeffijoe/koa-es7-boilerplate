@@ -6,7 +6,7 @@
 [![node](https://img.shields.io/node/v/koa-es7-boilerplate.svg?maxAge=1000)](https://www.npmjs.com/package/koa-es7-boilerplate)
 [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
-A boilerplate for writing beautiful `async-await`-based Koa 2 API's with ES7 using `babel` for **Node v6 and above!**.
+A boilerplate for writing beautiful `async-await`-based Koa 2 API's with ES7 using `babel` for **Node v8.0 and above!**.
 
 ## Setting up shop
 
@@ -16,7 +16,7 @@ Clone this repo and adjust details in `package.json`. Read on to learn how to ac
 
 * Auto-loading of API "controllers"
 * Nifty `npm run` scripts, see next section for details
-* `babel` with `env` + `stage-1` presets, `transform-runtime` plugin and sourcemaps
+* `babel` with `env` presets, `transform-runtime` + `transform-object-rest-spread` plugins and sourcemaps
 * `mocha-sinon-chai` testing, as well as `supertest` for API testing
 * Code coverage with `istanbul` + `nyc` (yes, **with ES7 support!**)
 * Routing with `koa-router`
@@ -26,7 +26,6 @@ Clone this repo and adjust details in `package.json`. Read on to learn how to ac
 * CORS middleware with `kcors`
 * `app-module-path` for improving your life when importing code in tests
 * `nodemon` for development to auto-restart when your files change
-* [`icebug`][icebug] for debugging
 * [`koa-respond`][respond] for helper functions on the context.
 * [`yenv`][yenv] for environment variable management
 * [`awilix`][awilix] for dependency injection / IoC
@@ -71,7 +70,7 @@ The repository root contains config files, e.g. eslint config, gitignore, etc.
 So the environment variables can be reached by importing `lib/env`.
 
 ```
-import env from 'lib/env';
+import env from '../lib/env';
 ```
 
 Additionally, all environment variables you'd usually find on `process.env` will be available on this object.
@@ -102,7 +101,7 @@ Middleware is located in the `middleware` folder and is *not* automatically load
 
 ## app-module-path - what?
 
-Basically, instead of `import stuff from '../../../../../lib/stuff'`, you can use `import stuff from 'lib/stuff'`.
+Basically, instead of `import stuff from '../../../../../lib/stuff'`, you can use `import stuff from 'lib/stuff'` in your tests.
 
 # Authors
 

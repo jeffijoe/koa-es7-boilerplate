@@ -1,6 +1,5 @@
 import Koa from 'koa'
 import Router from 'koa-router'
-import convert from 'koa-convert'
 import { scopePerRequest } from 'awilix-koa'
 import cors from 'kcors'
 import respond from 'koa-respond'
@@ -24,7 +23,7 @@ export default async function createServer () {
 
   // adds ctx.ok(), ctx.notFound(), etc..
   app.use(respond())
-  app.use(convert(cors()))
+  app.use(cors())
   app.use(bodyParser())
 
   // Container is configured with our services and whatnot.
