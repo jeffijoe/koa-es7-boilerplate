@@ -23,6 +23,7 @@ Read on to learn how to actually start being productive.
 * 🛠 &nbsp;&nbsp;[`koa-respond`][respond] for helper functions on the context.
 * 📄 &nbsp;&nbsp;&nbsp;[`yenv`][yenv] + [`keyblade`][keyblade] for environment variable management.
 * 💉 &nbsp;&nbsp;&nbsp;[`awilix`][awilix] for dependency injection / IoC.
+* ⚠️ &nbsp;&nbsp;&nbsp;[`fejl`][fejl] for assertions and errors.
 
 ## `npm run` scripts
 
