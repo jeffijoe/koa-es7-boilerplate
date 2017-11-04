@@ -1,77 +1,113 @@
 {
   "name": "koa-es7-boilerplate",
-  "version": "0.5.2",
+  "version": "0.0.0",
   "description": "A boilerplate for writing Koa 2 apps with Babel.",
+  "author": "Jeff Hansen",
+  "license": "MIT",
   "engines": {
     "node": ">=8.0.0",
     "npm": ">=3.8"
   },
   "scripts": {
-    "start": "node dist/bin/server.js",
-    "build": "babel src -d dist -s",
-    "dev": "nodemon src/bin/server.js",
-    "debug-brk": "npm run debug -- --break",
-    "test": "mocha --require test/_helpers test/**/*.spec.js --compilers js:babel-register -R dot --timeout 5000",
-    "test-watch": "npm run test -- --watch",
-    "lint": "eslint src/ test/",
-    "lint-watch": "esw -w src/ test/",
-    "cover": "cross-env NODE_ENV=test nyc npm test"
+    "start": "node dist/bin/www.js",
+    "build":
+      "rimraf dist && cross-env NODE_ENV=production babel src -d dist -s",
+    "dev": "nodemon src/bin/www.js",
+    "test": "cross-env NODE_ENV=test jest",
+    "cover": "npm run test -- --coverage",
+    "lint": "eslint --fix src && prettier --write \"src/**/*.js\"",
+    "precommit": "lint-staged"
   },
-  "author": "Jeff Hansen",
-  "license": "MIT",
   "dependencies": {
-    "awilix": "^2.2.5",
+    "@koa/cors": "^2.2.1",
+    "awilix": "^2.10.0",
     "awilix-koa": "^0.1.1",
-    "babel-preset-stage-1": "^6.24.1",
-    "babel-register": "^6.24.1",
+    "axios": "^0.17.0",
     "bristol": "^0.3.3",
-    "glob": "^7.1.1",
-    "kcors": "2",
-    "koa": "^2.2.0",
+    "fejl": "^1.0.2",
+    "keyblade": "^0.3.2",
+    "koa": "^2.3.0",
     "koa-bodyparser": "^4.2.0",
-    "koa-convert": "^1.2.0",
     "koa-respond": "^1.0.1",
-    "koa-router": "^7.1.1",
+    "koa-router": "^7.2.1",
     "lodash": "^4.17.4",
-    "palin": "^2.1.1",
-    "source-map-support": "^0.4.14",
+    "palin": "^2.2.0",
     "yenv": "^1.0.6"
   },
   "devDependencies": {
-    "app-module-path": "^2.2.0",
-    "babel-cli": "^6.24.1",
-    "babel-eslint": "^7.2.3",
-    "babel-plugin-istanbul": "^4.1.1",
-    "babel-plugin-source-map-support": "0.0.1",
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.0.1",
+    "babel-plugin-source-map-support": "^1.0.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.4.0",
-    "chai": "^3.5.0",
-    "cross-env": "^4.0.0",
-    "eslint": "^3.19.0",
+    "babel-preset-env": "^1.6.1",
+    "cross-env": "^5.1.1",
+    "eslint": "^4.10.0",
+    "eslint-config-prettier": "^2.7.0",
     "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jest": "^21.2.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-standard": "^3.0.1",
-    "eslint-watch": "^3.1.0",
-    "mocha": "^3.3.0",
-    "nodemon": "^1.11.0",
-    "nyc": "^10.2.0",
-    "sinon": "^2.1.0",
-    "sinon-chai": "^2.9.0",
-    "supertest": "^3.0.0"
+    "husky": "^0.14.3",
+    "jest": "^21.2.1",
+    "lint-staged": "^4.3.0",
+    "nodemon": "^1.12.1",
+    "prettier": "^1.7.4",
+    "rimraf": "^2.6.2",
+    "smid": "^0.1.1"
   },
-  "directories": {
-    "test": "test"
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "plugins": ["jest"],
+    "extends": ["standard", "prettier", "plugin:jest/recommended"],
+    "env": {
+      "jest/globals": true
+    }
   },
-  "nyc": {
-    "sourceMap": false,
-    "instrument": false,
-    "reporter": [
-      "text",
-      "lcov"
-    ],
-    "include": [
-      "src/**/*.js"
+  "prettier": {
+    "singleQuote": true,
+    "semi": false
+  },
+  "lint-staged": {
+    "*.js": ["eslint --fix", "prettier --write", "git add"]
+  },
+  "nodemonConfig": {
+    "execMap": {
+      "js": "babel-node"
+    }
+  },
+  "jest": {
+    "mapCoverage": true,
+    "testMatch": ["**/__tests__/**/*.test.js"],
+    "testEnvironment": "node",
+    "collectCoverageFrom": ["src/**/*.js"],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "__tests__",
+      "src/lib/env",
+      "src/bin"
     ]
+  },
+  "babel": {
+    "sourceMaps": "both",
+    "plugins": ["transform-runtime", "transform-object-rest-spread"],
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ],
+    "env": {
+      "production": {
+        "plugins": ["source-map-support"],
+        "ignore": ["**/__tests__/**"]
+      }
+    }
   }
 }
