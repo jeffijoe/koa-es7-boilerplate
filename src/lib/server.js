@@ -1,7 +1,7 @@
 import * as http from 'http'
 import Koa from 'koa'
 import Router from 'koa-router'
-import cors from 'kcors'
+import cors from '@koa/cors'
 import respond from 'koa-respond'
 import bodyParser from 'koa-bodyparser'
 import { scopePerRequest } from 'awilix-koa'

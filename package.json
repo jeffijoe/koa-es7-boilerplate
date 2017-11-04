@@ -10,8 +10,7 @@
   },
   "scripts": {
     "start": "node dist/bin/www.js",
-    "build":
-      "rimraf dist && cross-env NODE_ENV=production babel src -d dist -s",
+    "build": "rimraf dist && cross-env NODE_ENV=production babel src -d dist -s",
     "dev": "nodemon src/bin/www.js",
     "test": "cross-env NODE_ENV=test jest",
     "cover": "npm run test -- --coverage",
@@ -19,12 +18,12 @@
     "precommit": "lint-staged"
   },
   "dependencies": {
+    "@koa/cors": "^2.2.1",
     "awilix": "^2.10.0",
     "awilix-koa": "^0.1.1",
     "axios": "^0.17.0",
     "bristol": "^0.3.3",
     "fejl": "^1.0.2",
-    "kcors": "^2.2.1",
     "keyblade": "^0.3.2",
     "koa": "^2.3.0",
     "koa-bodyparser": "^4.2.0",
@@ -60,8 +59,14 @@
   },
   "eslintConfig": {
     "parser": "babel-eslint",
-    "plugins": ["jest"],
-    "extends": ["standard", "prettier", "plugin:jest/recommended"],
+    "plugins": [
+      "jest"
+    ],
+    "extends": [
+      "standard",
+      "prettier",
+      "plugin:jest/recommended"
+    ],
     "env": {
       "jest/globals": true
     }
@@ -71,7 +76,11 @@
     "semi": false
   },
   "lint-staged": {
-    "*.js": ["eslint --fix", "prettier --write", "git add"]
+    "*.js": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ]
   },
   "nodemonConfig": {
     "execMap": {
@@ -80,9 +89,13 @@
   },
   "jest": {
     "mapCoverage": true,
-    "testMatch": ["**/__tests__/**/*.test.js"],
+    "testMatch": [
+      "**/__tests__/**/*.test.js"
+    ],
     "testEnvironment": "node",
-    "collectCoverageFrom": ["src/**/*.js"],
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
     "coveragePathIgnorePatterns": [
       "/node_modules/",
       "__tests__",
@@ -92,11 +105,18 @@
   },
   "babel": {
     "sourceMaps": "both",
-    "plugins": ["transform-runtime", "transform-object-rest-spread"],
+    "plugins": [
+      "transform-runtime",
+      "transform-object-rest-spread"
+    ],
     "env": {
       "production": {
-        "plugins": ["source-map-support"],
-        "ignore": ["**/__tests__/**"]
+        "plugins": [
+          "source-map-support"
+        ],
+        "ignore": [
+          "**/__tests__/**"
+        ]
       }
     },
     "presets": [
