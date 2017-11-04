@@ -1,12 +1,14 @@
 import yenv from 'yenv'
+import { keyblade } from 'keyblade'
+import { logger } from './logger'
+
+process.env.NODE_ENV = process.env.NODE_ENV || 'development'
 
 /**
  * We just export what `yenv()` returns.
+ * `keyblade` will make sure we don't rely on undefined values.
  */
-const env = {
-  NODE_ENV: process.env.NODE_ENV || 'development',
-  load: (newEnv) => Object.assign(env, yenv('env.yaml', { env: newEnv })),
-  ...yenv()
-}
-
-export default env
+export const env = keyblade(yenv(), {
+  message: key => `[yenv] ${key} not found in the loaded environment`,
+  logBeforeThrow: message => logger.error(message)
+})

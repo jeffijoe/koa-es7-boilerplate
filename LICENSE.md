@@ -1,6 +1,6 @@
 # The MIT License (MIT)
 
-Copyright (c) Jeff Hansen, Jon West 2016 to present.
+Copyright (c) Jeff Hansen 2017 to present.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
