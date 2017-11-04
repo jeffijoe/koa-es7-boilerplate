@@ -1,6 +1,8 @@
 import { makeInvoker } from 'awilix-koa'
 
 // This will let us use our injected services.
+// Basically, we're destructuring a proxy that
+// resolves the dependencies.
 const api = makeInvoker(({ todoService }) => ({
   findTodos: async ctx => ctx.ok(await todoService.find(ctx.query)),
   getTodo: async ctx => ctx.ok(await todoService.get(ctx.params.id)),
