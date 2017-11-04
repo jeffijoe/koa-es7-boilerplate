@@ -10,7 +10,7 @@ Read on to learn how to actually start being productive.
 
 ## What's in the package?
 
-* 🏃‍♀️&nbsp;&nbsp;`npm run` scripts, see next section for details.
+* 🏃‍♀️&nbsp;&nbsp;&nbsp;`npm run` scripts, see next section for details.
 * 🛣 &nbsp;&nbsp;[`koa-router`][koa-router] + auto-loading of API routes.
 * 🗣&nbsp;&nbsp;&nbsp;[`babel`][babel] with `env` presets, `transform-runtime` + `transform-object-rest-spread` plugins and sourcemaps.
 * 🃏&nbsp;&nbsp;&nbsp;[`jest`][jest] for testing with some API testing helpers.
@@ -59,7 +59,7 @@ The repository root contains auxiliary files like `package.json`, `.gitignore`, 
   * `__tests__`: In the source root folder, contains integration tests.
   * `routes`: API endpoints go here, and are automatically loaded at startup. Please see the section about API endpoints for details.
   * `bin`: files that are usually executed by `npm run` scripts, e.g. starting the server.
-  * `lib`: stuff that helps the app start up, e.g. environment, utilities for loading modules, the container implementation, etc.
+  * `lib`: stuff that helps the app start up, e.g. environment, logger, the container configuration, etc.
   * `middleware`: custom app middleware.
   * `services`: application services, this is just to illustrate the dynamic discovery of stuff as described in the Dependency injection section.
     * `__tests__`: Unit tests for files in the `services` directory.
