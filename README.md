@@ -19,7 +19,7 @@ Read on to learn how to actually start being productive.
 * 👀 &nbsp;&nbsp;[`prettier`][prettier] code formatting, configured to work with `eslint` out of the box.
 * 🐶 &nbsp;&nbsp;[`husky`][husky] + [`lint-staged`][lint-staged] to lint and format files when committing.
 * ❌ &nbsp;&nbsp;[`@koa/cors`][cors] CORS middleware for cross-domain requests.
-* 🕵️‍♀️&nbsp;[`nodemon`][nodemon] for development to auto-restart when your files change.
+* 🕵️‍♀️&nbsp;&nbsp;[`nodemon`][nodemon] for development to auto-restart when your files change.
 * 🛠 &nbsp;&nbsp;[`koa-respond`][respond] for helper functions on the context.
 * 📄 &nbsp;&nbsp;&nbsp;[`yenv`][yenv] + [keyblade][keyblade] for environment variable management.
 * 💉 &nbsp;&nbsp;&nbsp;[`awilix`][awilix] for dependency injection / IoC.
