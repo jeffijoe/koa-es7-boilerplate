@@ -11,7 +11,7 @@ Read on to learn how to actually start being productive.
 ## What's in the package?
 
 * 🏃‍♀️&nbsp;&nbsp;&nbsp;`npm run` scripts, see next section for details.
-* 🛣 &nbsp;&nbsp;[`koa-router`][koa-router] + auto-loading of API routes.
+* 🛣 &nbsp;&nbsp;[awilix-koa][awilix-koa] for declarative routing.
 * 🗣&nbsp;&nbsp;&nbsp;[`babel`][babel] with `env` presets, `transform-runtime` + `transform-object-rest-spread` plugins and sourcemaps.
 * 🃏&nbsp;&nbsp;&nbsp;[`jest`][jest] for testing with some API testing helpers.
 * 💪&nbsp;&nbsp;&nbsp;[`koa-bodyparser`][koa-bodyparser] for parsing request bodies.
@@ -136,6 +136,7 @@ MIT.
 [yenv]: https://github.com/jeffijoe/yenv
 [keyblade]: https://github.com/jeffijoe/keyblade
 [awilix]: https://github.com/jeffijoe/awilix
+[awilix-koa]: https://github.com/jeffijoe/awilix-koa
 [keyblade]: https://github.com/jeffijoe/keyblade
 [smid]: https://github.com/jeffijoe/smid
 [fejl]: https://github.com/jeffijoe/fejl
