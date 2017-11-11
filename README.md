@@ -11,7 +11,7 @@ Read on to learn how to actually start being productive.
 ## What's in the package?
 
 * 🏃‍♀️&nbsp;&nbsp;&nbsp;`npm run` scripts, see next section for details.
-* 🛣 &nbsp;&nbsp;[awilix-koa][awilix-koa] for declarative routing.
+* 🛣 &nbsp;&nbsp;[`awilix-koa`][awilix-koa] for declarative routing.
 * 🗣&nbsp;&nbsp;&nbsp;[`babel`][babel] with `env` presets, `transform-runtime` + `transform-object-rest-spread` plugins and sourcemaps.
 * 🃏&nbsp;&nbsp;&nbsp;[`jest`][jest] for testing with some API testing helpers.
 * 💪&nbsp;&nbsp;&nbsp;[`koa-bodyparser`][koa-bodyparser] for parsing request bodies.
