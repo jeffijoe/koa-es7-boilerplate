@@ -10,8 +10,7 @@
   },
   "scripts": {
     "start": "node dist/bin/www.js",
-    "build":
-      "rimraf dist && cross-env NODE_ENV=production babel src -d dist -s",
+    "build": "rimraf dist && cross-env NODE_ENV=production babel src -d dist -s",
     "dev": "nodemon src/bin/www.js",
     "test": "cross-env NODE_ENV=test jest",
     "cover": "npm run test -- --coverage",
@@ -21,13 +20,14 @@
   "dependencies": {
     "@koa/cors": "^2.2.1",
     "awilix": "^2.10.0",
-    "awilix-koa": "^0.1.1",
+    "awilix-koa": "^1.0.1",
     "axios": "^0.17.0",
     "bristol": "^0.3.3",
     "fejl": "^1.0.2",
     "keyblade": "^0.3.2",
     "koa": "^2.3.0",
     "koa-bodyparser": "^4.2.0",
+    "koa-compress": "^2.0.0",
     "koa-respond": "^1.0.1",
     "koa-router": "^7.2.1",
     "lodash": "^4.17.4",
@@ -52,7 +52,7 @@
     "eslint-plugin-standard": "^3.0.1",
     "husky": "^0.14.3",
     "jest": "^21.2.1",
-    "lint-staged": "^4.3.0",
+    "lint-staged": "^5.0.0",
     "nodemon": "^1.12.1",
     "prettier": "^1.7.4",
     "rimraf": "^2.6.2",
@@ -60,8 +60,14 @@
   },
   "eslintConfig": {
     "parser": "babel-eslint",
-    "plugins": ["jest"],
-    "extends": ["standard", "prettier", "plugin:jest/recommended"],
+    "plugins": [
+      "jest"
+    ],
+    "extends": [
+      "standard",
+      "prettier",
+      "plugin:jest/recommended"
+    ],
     "env": {
       "jest/globals": true
     }
@@ -71,7 +77,11 @@
     "semi": false
   },
   "lint-staged": {
-    "*.js": ["eslint --fix", "prettier --write", "git add"]
+    "*.js": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ]
   },
   "nodemonConfig": {
     "execMap": {
@@ -80,9 +90,13 @@
   },
   "jest": {
     "mapCoverage": true,
-    "testMatch": ["**/__tests__/**/*.test.js"],
+    "testMatch": [
+      "**/__tests__/**/*.test.js"
+    ],
     "testEnvironment": "node",
-    "collectCoverageFrom": ["src/**/*.js"],
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
     "coveragePathIgnorePatterns": [
       "/node_modules/",
       "__tests__",
@@ -92,7 +106,10 @@
   },
   "babel": {
     "sourceMaps": "both",
-    "plugins": ["transform-runtime", "transform-object-rest-spread"],
+    "plugins": [
+      "transform-runtime",
+      "transform-object-rest-spread"
+    ],
     "presets": [
       [
         "env",
@@ -105,8 +122,12 @@
     ],
     "env": {
       "production": {
-        "plugins": ["source-map-support"],
-        "ignore": ["**/__tests__/**"]
+        "plugins": [
+          "source-map-support"
+        ],
+        "ignore": [
+          "**/__tests__/**"
+        ]
       }
     }
   }

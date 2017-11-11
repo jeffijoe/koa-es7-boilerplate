@@ -1,9 +1,10 @@
-import { makeInvoker } from 'awilix-koa'
+import { createController } from 'awilix-koa'
 
-// This will let us use our injected services.
-// Basically, we're destructuring a proxy that
-// resolves the dependencies.
-const api = makeInvoker(({ todoService }) => ({
+// This is our API controller.
+// All it does is map HTTP calls to service calls.
+// This way our services could be used in any type of app, not
+// just over HTTP.
+const api = todoService => ({
   findTodos: async ctx => ctx.ok(await todoService.find(ctx.query)),
   getTodo: async ctx => ctx.ok(await todoService.get(ctx.params.id)),
   createTodo: async ctx =>
@@ -12,13 +13,15 @@ const api = makeInvoker(({ todoService }) => ({
     ctx.ok(await todoService.update(ctx.params.id, ctx.request.body)),
   removeTodo: async ctx =>
     ctx.noContent(await todoService.remove(ctx.params.id))
-}))
+})
 
-// Called by `lib/register-routes`
-export default function(router) {
-  router.get('/todos', api('findTodos'))
-  router.get('/todos/:id', api('getTodo'))
-  router.post('/todos', api('createTodo'))
-  router.patch('/todos/:id', api('updateTodo'))
-  router.delete('/todos/:id', api('removeTodo'))
-}
+// Maps routes to method calls on the `api` controller.
+// See the `awilix-router-core` docs for info:
+// https://github.com/jeffijoe/awilix-router-core
+export default createController(api)
+  .prefix('/todos')
+  .get('', 'findTodos')
+  .get('/:id', 'getTodo')
+  .post('', 'createTodo')
+  .patch('/:id', 'updateTodo')
+  .delete('/:id', 'removeTodo')
