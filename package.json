@@ -20,8 +20,8 @@
   "dependencies": {
     "@koa/cors": "^2.2.1",
     "awilix": "^2.10.0",
-    "awilix-koa": "^1.0.1",
-    "axios": "^0.17.0",
+    "awilix-koa": "^1.0.2",
+    "axios": "^0.17.1",
     "bristol": "^0.3.3",
     "fejl": "^1.0.2",
     "keyblade": "^0.3.2",
@@ -29,7 +29,7 @@
     "koa-bodyparser": "^4.2.0",
     "koa-compress": "^2.0.0",
     "koa-respond": "^1.0.1",
-    "koa-router": "^7.2.1",
+    "koa-router": "^7.3.0",
     "lodash": "^4.17.4",
     "palin": "^2.2.0",
     "yenv": "^1.0.6"
