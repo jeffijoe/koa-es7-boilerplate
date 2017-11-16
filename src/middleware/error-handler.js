@@ -11,7 +11,7 @@ export async function errorHandler(ctx, next) {
   } catch (err) {
     /* istanbul ignore next */
     ctx.status = err.statusCode || 500
-    ctx.body = JSON.parse(JSON.stringify(err))
+    ctx.body = err.toJSON ? err.toJSON() : { message: err.message, ...err }
     /* istanbul ignore next */
     if (!env.EMIT_STACK_TRACE) {
       delete ctx.body.stack
