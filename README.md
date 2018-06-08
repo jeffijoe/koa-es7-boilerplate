@@ -85,7 +85,7 @@ import { env } from '../lib/env'
 
 Additionally, all environment variables you'd usually find on `process.env` will be available on this object.
 
-When attempting to access a key (`env.PORT` for example), if the key does not exist an error is thrown and the process terminated. See [keyblade][keyblade] for more info.
+When attempting to access a key (`env.PORT` for example), if the key does not exist an error is thrown and the process terminated.
 
 In the repository root, you will find a `env.yaml`, which is where you can set up environment variables so you won't have to do it from your shell. This also makes it more platform-agnostic.
 
@@ -100,7 +100,7 @@ See the [`yenv` docs](https://github.com/jeffijoe/yenv) for more info.
 
 ## API endpoints
 
-Each file in `/routes` exports a default function that takes the router as the first parameter. That function registers API endpoints.
+Each file in `/routes` exports a "controller" that `awilix-koa` will use for routing. Please see [`awilix-koa`](https://github.com/jeffijoe/awilix-koa#awesome-usage) docs for more information.
 
 ## Dependency injection
 
