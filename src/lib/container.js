@@ -1,4 +1,4 @@
-import { createContainer, Lifetime, ResolutionMode } from 'awilix'
+import { createContainer, Lifetime, InjectionMode, asValue } from 'awilix'
 import { logger } from './logger'
 
 /**
@@ -24,7 +24,7 @@ export function configureContainer() {
   const opts = {
     // Classic means Awilix will look at function parameter
     // names rather than passing a Proxy.
-    resolutionMode: ResolutionMode.CLASSIC
+    injectionMode: InjectionMode.CLASSIC
   }
   return createContainer(opts)
     .loadModules(modulesToLoad, {
@@ -34,9 +34,9 @@ export function configureContainer() {
       // Example: registers `services/todo-service.js` as `todoService`
       formatName: 'camelCase'
     })
-    .registerValue({
+    .register({
       // Our logger is already constructed,
       // so provide it as-is to anyone who wants it.
-      logger
+      logger: asValue(logger)
     })
 }

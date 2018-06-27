@@ -10,31 +10,31 @@ Read on to learn how to actually start being productive.
 
 ## What's in the package?
 
-* 🏃‍♀️&nbsp;&nbsp;&nbsp;`npm run` scripts, see next section for details.
-* 🛣 &nbsp;&nbsp;[`awilix-koa`][awilix-koa] for declarative routing.
-* 🗣&nbsp;&nbsp;&nbsp;[`babel`][babel] with `env` presets, `transform-runtime` + `transform-object-rest-spread` plugins and sourcemaps.
-* 🃏&nbsp;&nbsp;&nbsp;[`jest`][jest] for testing with some API testing helpers.
-* 💪&nbsp;&nbsp;&nbsp;[`koa-bodyparser`][koa-bodyparser] for parsing request bodies.
-* ✅ &nbsp;&nbsp;[`eslint`][eslint] with [standard][standard], works with ES7 thanks to `babel-eslint`.
-* 👀 &nbsp;&nbsp;[`prettier`][prettier] code formatting, configured to work with `eslint` out of the box.
-* 🐶 &nbsp;&nbsp;[`husky`][husky] + [`lint-staged`][lint-staged] to lint and format files when committing.
-* ❌ &nbsp;&nbsp;[`@koa/cors`][cors] CORS middleware for cross-domain requests.
-* 🕵️‍♀️&nbsp;&nbsp;&nbsp;[`nodemon`][nodemon] for development to auto-restart when your files change.
-* 🛠 &nbsp;&nbsp;[`koa-respond`][respond] for helper functions on the context.
-* 📄 &nbsp;&nbsp;&nbsp;[`yenv`][yenv] + [`keyblade`][keyblade] for environment variable management.
-* 💉 &nbsp;&nbsp;&nbsp;[`awilix`][awilix] for dependency injection / IoC.
-* ⚠️ &nbsp;&nbsp;&nbsp;[`fejl`][fejl] for assertions and errors.
+- 🏃‍♀️&nbsp;&nbsp;&nbsp;`npm run` scripts, see next section for details.
+- 🛣 &nbsp;&nbsp;[`awilix-koa`][awilix-koa] for declarative routing.
+- 🗣&nbsp;&nbsp;&nbsp;[`babel`][babel] with `env` presets, `transform-runtime` + `transform-object-rest-spread` plugins and sourcemaps.
+- 🃏&nbsp;&nbsp;&nbsp;[`jest`][jest] for testing with some API testing helpers.
+- 💪&nbsp;&nbsp;&nbsp;[`koa-bodyparser`][koa-bodyparser] for parsing request bodies.
+- ✅ &nbsp;&nbsp;[`eslint`][eslint] with [standard][standard], works with ES7 thanks to `babel-eslint`.
+- 👀 &nbsp;&nbsp;[`prettier`][prettier] code formatting, configured to work with `eslint` out of the box.
+- 🐶 &nbsp;&nbsp;[`husky`][husky] + [`lint-staged`][lint-staged] to lint and format files when committing.
+- ❌ &nbsp;&nbsp;[`@koa/cors`][cors] CORS middleware for cross-domain requests.
+- 🕵️‍♀️&nbsp;&nbsp;&nbsp;[`nodemon`][nodemon] for development to auto-restart when your files change.
+- 🛠 &nbsp;&nbsp;[`koa-respond`][respond] for helper functions on the context.
+- 📄 &nbsp;&nbsp;&nbsp;[`yenv`][yenv] for environment variable management.
+- 💉 &nbsp;&nbsp;&nbsp;[`awilix`][awilix] for dependency injection / IoC.
+- ⚠️ &nbsp;&nbsp;&nbsp;[`fejl`][fejl] for assertions and errors.
 
 ## `npm run` scripts
 
 There are a few defined run scripts, here's a list of them with a description of what they do. To run them, simply execute `npm run <script name>` - e.g. `npm run dev`
 
-* `start`: Used by the production environment to start the app. This will run a compiled version, so you need to execute `build` first.
-* `build`: Runs the `babel` CLI to compile the app. Files are emitted to `dist/`.
-* `dev`: Runs the app in development mode - uses `babel-node` to compile on-the-fly. Also uses `nodemon` to automatically restart when stuff changes.
-* `test`: Runs tests.
-* `cover`: Runs tests and collects coverage.
-* `lint`: Lints + formats the code.
+- `start`: Used by the production environment to start the app. This will run a compiled version, so you need to execute `build` first.
+- `build`: Runs the `babel` CLI to compile the app. Files are emitted to `dist/`.
+- `dev`: Runs the app in development mode - uses `babel-node` to compile on-the-fly. Also uses `nodemon` to automatically restart when stuff changes.
+- `test`: Runs tests.
+- `cover`: Runs tests and collects coverage.
+- `lint`: Lints + formats the code.
 
 **Tip**: to pass additional arguments to the actual CLI's being called, do it like in this example:
 
@@ -56,16 +56,16 @@ yarn test --debug
 
 The repository root contains auxiliary files like `package.json`, `.gitignore`, etc.
 
-* `src`: the actual source for the app goes here. Duh.
-  * `__tests__`: In the source root folder, contains integration tests.
-  * `routes`: API endpoints go here, and are automatically loaded at startup. Please see the section about API endpoints for details.
-  * `bin`: files that are usually executed by `npm run` scripts, e.g. starting the server.
-  * `lib`: stuff that helps the app start up, e.g. environment, logger, the container configuration, etc.
-  * `middleware`: custom app middleware.
-  * `services`: application services, this is just to illustrate the dynamic discovery of stuff as described in the Dependency injection section.
-    * `__tests__`: Unit tests for files in the `services` directory.
-  * `[your directory]`: you can plop anything else here, too.
-    * `__tests__`: Unit tests for files in your directory.
+- `src`: the actual source for the app goes here. Duh.
+  - `__tests__`: In the source root folder, contains integration tests.
+  - `routes`: API endpoints go here, and are automatically loaded at startup. Please see the section about API endpoints for details.
+  - `bin`: files that are usually executed by `npm run` scripts, e.g. starting the server.
+  - `lib`: stuff that helps the app start up, e.g. environment, logger, the container configuration, etc.
+  - `middleware`: custom app middleware.
+  - `services`: application services, this is just to illustrate the dynamic discovery of stuff as described in the Dependency injection section.
+    - `__tests__`: Unit tests for files in the `services` directory.
+  - `[your directory]`: you can plop anything else here, too.
+    - `__tests__`: Unit tests for files in your directory.
 
 ## Testing
 
@@ -94,7 +94,7 @@ The top-level nodes in the YAML-file contain a set of environment variables.
 
 I've set it up so anything in `tests` will override anything in `development` when running tests.
 
-*Actual environment variables will take precedence over the `env.yaml` file!*
+_Actual environment variables will take precedence over the `env.yaml` file!_
 
 See the [`yenv` docs](https://github.com/jeffijoe/yenv) for more info.
 
@@ -109,11 +109,11 @@ for details. The container is configured in `lib/container.js`.
 
 ## Middleware
 
-Middleware is located in the `middleware` folder and is *not* automatically loaded - they should be installed in `lib/server`.
+Middleware is located in the `middleware` folder and is _not_ automatically loaded - they should be installed in `lib/server`.
 
 # Author
 
-* Jeff Hansen - [@Jeffijoe](https://twitter.com/Jeffijoe)
+- Jeff Hansen - [@Jeffijoe](https://twitter.com/Jeffijoe)
 
 # License
 
@@ -134,9 +134,7 @@ MIT.
 [nodemon]: https://github.com/remy/nodemon
 [respond]: https://github.com/jeffijoe/koa-respond
 [yenv]: https://github.com/jeffijoe/yenv
-[keyblade]: https://github.com/jeffijoe/keyblade
 [awilix]: https://github.com/jeffijoe/awilix
 [awilix-koa]: https://github.com/jeffijoe/awilix-koa
-[keyblade]: https://github.com/jeffijoe/keyblade
 [smid]: https://github.com/jeffijoe/smid
 [fejl]: https://github.com/jeffijoe/fejl
