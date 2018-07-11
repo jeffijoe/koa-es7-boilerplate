@@ -32,7 +32,7 @@
     "koa-router": "^7.3.0",
     "lodash": "^4.17.4",
     "palin": "^2.2.0",
-    "yenv": "^1.0.6"
+    "yenv": "2.0.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
