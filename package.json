@@ -24,7 +24,6 @@
     "axios": "^0.17.1",
     "bristol": "^0.3.3",
     "fejl": "^1.0.2",
-    "keyblade": "^0.3.2",
     "koa": "^2.3.0",
     "koa-bodyparser": "^4.2.0",
     "koa-compress": "^2.0.0",
