@@ -1,7 +1,8 @@
 version: '3.6'
 
 services:
-  hms:
+  app:
+    tty: true
     build: .
     command: 
       - "yarn"
