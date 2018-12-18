@@ -1,0 +1,28 @@
+### Git ###
+.git*
+
+
+### Node.js ###
+# Dependency directories
+node_modules
+
+# Logs
+logs
+*.log
+*.log.[0-9]
+log*
+
+# Coverage directory
+lib-cov
+coverage
+.nyc_output
+
+# Optional NPM cache directory
+.npm
+
+
+### Project ###
+# Metafiles
+.editorocnfig
+circle*
+.circle*

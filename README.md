@@ -56,6 +56,22 @@ npm run test -- --debug
 yarn test --debug
 ```
 
+## `docker-compose up` scripts
+
+**For running dev:**
+
+```bash
+# Note: use --build only when you want to build. Usually when you change packages.json
+docker-compose up --build
+```
+
+**For running test:**
+
+```bash
+docker-compose -f docker-compose.test.yml up
+```
+
+
 ## Directory structure
 
 The repository root contains auxiliary files like `package.json`, `.gitignore`, etc.
